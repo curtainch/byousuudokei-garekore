@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://neconote.jp/tool/sec.html -->
+<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="format-detection" content="telephone=no">
+
+<style>
+<!--
+
+body {
+	font-size:24pt;
+	text-align:center;
+	background:black;
+	color:white;
+}
+
+a.gc {color:#ff0040; text-decoration:none;}
+
+-->
+</style>
+
+<script>
+<!--
+
+$week = "日月火水木金土";
+
+window.onload = _main;
+
+function _main(){
+	$now = new Date();
+	$y = $now.getFullYear();
+	$m = $now.getMonth()+1;
+	$d = $now.getDate();
+	$w = $now.getDay();
+	
+	$hr  = $now.getHours();
+	$hh  = ('00'+$hr).slice(-2);
+	$min = $now.getMinutes();
+	$mm  = ('00'+$min).slice(-2);
+	$sec = $now.getSeconds();
+	$ss  = ('00'+$sec).slice(-2);
+	$milli = $now.getMilliseconds();
+	$ms  = ('000'+$milli).slice(-3);
+	
+	// 現時刻の秒
+	
+	$time = $hr*60*60 + $min*60 + $sec;
+	
+	// 表示
+	
+	document.getElementById("id_date").innerHTML = $y+"年"+$m+"月"+$d+"日("+$week.charAt($w)+") "+$hh+":"+$mm+":"+$ss+":"+$ms;
+	document.getElementById("id_now").innerHTML = $now;
+	document.getElementById("id_unix").innerHTML = parseInt($now/1000).toLocaleString()+"秒";
+	document.getElementById("id_sec").innerHTML = $time.toLocaleString();
+	
+	setTimeout(_main,1000-Date.now()%1000);
+}
+
+// -->
+</script>
+
+<title>秒数時計</title>
+
+</head>
+
+
+
+<body>
+
+<p id="id_date">2022年8月10日(水) 21:25:59:010</p>
+
+<p id="id_now">Wed Aug 10 2022 21:25:59 GMT+0900 (日本標準時)</p>
+
+<p>UNIX Time<br>
+<span id="id_unix">1,660,134,359秒</span></p>
+
+<p>1日<br>
+<span id="id_sec">77,159</span>秒／86,400秒</p>
+
+<hr><hr>
+
+<div style="text-align:right; font-size:12pt;"><a href="http://neconote.jp/" target="_blank" class="gc">presented by Garage Collection（ガレコレ）</a></div>
+
+<br><br><br>
+
+
+
+</body></html>
